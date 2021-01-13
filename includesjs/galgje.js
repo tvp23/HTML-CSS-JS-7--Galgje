@@ -18,13 +18,13 @@ var lettercounter = 0
 
 wordsplited.forEach(element => {
   var div = document.createElement('div');
-  div.textContent = "";
+  div.textContent = "_";
   div.setAttribute('id', lettercounter);
   document.body.appendChild(div);
   lettercounter ++;
 });
 
-//your geuss
+//game var
 var inputs = [""];
 var input;
 var points;
@@ -33,6 +33,7 @@ var livepoint = 5;
 var overflow = 0;
 var anwsertrue = 0;
 var falseinput = 0;
+var correctanwser = 0;
 
 
 //event listener
@@ -57,20 +58,30 @@ window.addEventListener('keydown', function(e){
           anwsertrue++;
         }
       }
-      //wrong anwser check
+      //live and anwser points
       if(anwsertrue == 0){
         if(overflow == 0){
           livepoint--;
-          overflow++
+          overflow++;
         }
       }
+      else{
+        correctanwser++;
+      }
     }
+    //gamecomple check
+    if(correctanwser == wordsplited.length){
+      console.log('U finished the game! :)');
+      gameover = true;
+    }
+
     //gameover check
     if(livepoint == 0){
       gameover = true;
     }
-    //var reset
-    overflow = 0;
-    anwsertrue = 0;
   }
+  //var reset
+  overflow = 0;
+  anwsertrue = 0;
+  falseinput = 0;
 })
