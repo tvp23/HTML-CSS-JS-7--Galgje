@@ -35,6 +35,7 @@ var overflow = 0;
 var anwsertrue = 0;
 var falseinput = 0;
 var correctanwser = 0;
+var gamewon = false;
 
 //gameinfo
 document.getElementById('lifepoints').innerHTML = lifepoint;
@@ -72,15 +73,19 @@ window.addEventListener('keydown', function(e){
       correctanwser += anwsertrue
     }
     //gamecomple check
-    if(correctanwser == wordsplited.length){
-      //creates a div showing winning message
-      var div = document.createElement('div');
-      div.textContent = "You finished the game!!!";
-      div.setAttribute('id', 'gamewon');
-      document.getElementById('gameover').appendChild(div);
-
-      gameover = true;
+    if(gamewon == false){
+      if(correctanwser == wordsplited.length){
+        //creates a div showing winning message
+        var div = document.createElement('div');
+        div.textContent = "You finished the game!!!";
+        div.setAttribute('id', 'gamewon');
+        document.getElementById('gameover').appendChild(div);
+  
+        gamewon = true;
+        gameover = true;
+      }
     }
+
     //gameover check
     if(lifepoint == 0){
       var div = document.createElement('div');
