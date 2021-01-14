@@ -65,23 +65,21 @@ window.addEventListener('keydown', function(e){
           overflow++;
         }
       }
-      else{
-        correctanwser++;
-      }
+      //pointcounter
+      correctanwser += anwsertrue
     }
     //gamecomple check
     if(correctanwser == wordsplited.length){
       console.log('U finished the game! :)');
       gameover = true;
     }
-
     //gameover check
     if(livepoint == 0){
       gameover = true;
     }
-  }
   //var reset
   overflow = 0;
   anwsertrue = 0;
   falseinput = 0;
+  }
 })
