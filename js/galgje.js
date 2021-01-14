@@ -20,7 +20,8 @@ wordsplited.forEach(element => {
   var div = document.createElement('div');
   div.textContent = "_";
   div.setAttribute('id', lettercounter);
-  document.body.appendChild(div);
+  div.setAttribute('class', 'Word');
+  document.getElementById('galgjeword').appendChild(div);
   lettercounter ++;
 });
 
@@ -29,12 +30,14 @@ var inputs = [""];
 var input;
 var points;
 var gameover = false;
-var livepoint = 5;
+var lifepoint = 7;
 var overflow = 0;
 var anwsertrue = 0;
 var falseinput = 0;
 var correctanwser = 0;
 
+//gameinfo
+document.getElementById('lifepoints').innerHTML = lifepoint;
 
 //event listener
 window.addEventListener('keydown', function(e){
@@ -58,10 +61,10 @@ window.addEventListener('keydown', function(e){
           anwsertrue++;
         }
       }
-      //live and anwser points
+      //life and anwser points
       if(anwsertrue == 0){
         if(overflow == 0){
-          livepoint--;
+          lifepoint--;
           overflow++;
         }
       }
@@ -70,16 +73,27 @@ window.addEventListener('keydown', function(e){
     }
     //gamecomple check
     if(correctanwser == wordsplited.length){
-      console.log('U finished the game! :)');
+      //creates a div showing winning message
+      var div = document.createElement('div');
+      div.textContent = "You finished the game!!!";
+      div.setAttribute('id', 'gamewon');
+      document.getElementById('gameover').appendChild(div);
+
       gameover = true;
     }
     //gameover check
-    if(livepoint == 0){
+    if(lifepoint == 0){
+      var div = document.createElement('div');
+      div.textContent = "You lost the game";
+      div.setAttribute('id', 'gamelost');
+      document.getElementById('gameover').appendChild(div);
+      
       gameover = true;
     }
+  }
   //var reset
   overflow = 0;
   anwsertrue = 0;
   falseinput = 0;
-  }
+  document.getElementById('lifepoints').innerHTML = lifepoint;
 })

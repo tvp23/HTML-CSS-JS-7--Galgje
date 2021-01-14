@@ -1,0 +1,52 @@
+html{
+    margin: 0px;
+    height: 100%;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://www.freeprintablepdf.eu/files/en-inch-graph-paper.png");
+    height: 75%;
+}
+
+/* game div*/
+#Galgje{
+    display: flex;
+    align-self: center;
+    align-items: center;
+    flex-direction: column;
+    width: 900px;
+    height: 600px;
+    background-color: gray;
+}
+
+#gameover{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 150px;
+    font-size: 30px;
+}
+
+#galgjeword{
+    display: flex;
+    align-self: center;
+    margin-top: 10%;
+}
+
+#lifepoints{
+    align-self: center;
+    margin-top: 15%;
+    font-size: 50px;
+}
+
+.Word{
+    margin-left: 5px;
+    font-size: 50px;
+}
+
+#gamewon{
+    display: flex;
+    align-self: center;
+}
