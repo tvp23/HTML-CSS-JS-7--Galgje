@@ -1,4 +1,3 @@
-
 var wordlist =  ["apple", "car", "house", "button", "trail", "plantation", "sack", "sincere", "gorgeous", "watch", "reject", "matter", "mind", "auspicious", "account"]
 
 //wordlistlength
@@ -21,7 +20,7 @@ wordsplited.forEach(element => {
   div.textContent = "_";
   div.setAttribute('id', lettercounter);
   div.setAttribute('class', 'Word');
-  document.getElementById('galgjeword').appendChild(div);
+  document.getElementById('hangmanword').appendChild(div);
   lettercounter ++;
 });
 
@@ -60,7 +59,7 @@ window.addEventListener('keydown', function(e){
           anwsertrue++;
         }
       }
-      //life and anwser points
+      //damgepoints and anwser points
       if(anwsertrue == 0){
         if(overflow == 0){
           damagepoint++;
@@ -101,5 +100,5 @@ window.addEventListener('keydown', function(e){
   overflow = 0;
   anwsertrue = 0;
   falseinput = 0;
-  document.getElementById('imglifepoints').src = 'img/galgje/state'+damagepoint+'.png';
+  document.getElementById('imgdamgepoints').src = 'img/hangman/state'+damagepoint+'.png';
 })
