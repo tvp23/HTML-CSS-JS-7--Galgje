@@ -1,5 +1,5 @@
-var wordlist = ["apple", "car", "house"];
 
+var wordlist =  ["apple", "car", "house", "button", "trail", "plantation", "sack", "sincere", "gorgeous", "watch", "reject", "matter", "mind", "auspicious", "account"]
 
 //wordlistlength
 var wordlistlength = wordlist.length;
@@ -30,15 +30,13 @@ var inputs = [""];
 var input;
 var points;
 var gameover = false;
-var lifepoint = 7;
+var damagepoint = 0;
 var overflow = 0;
 var anwsertrue = 0;
 var falseinput = 0;
 var correctanwser = 0;
 var gamewon = false;
-
-//gameinfo
-document.getElementById('lifepoints').innerHTML = lifepoint;
+var gamelost = false;
 
 //event listener
 window.addEventListener('keydown', function(e){
@@ -65,7 +63,7 @@ window.addEventListener('keydown', function(e){
       //life and anwser points
       if(anwsertrue == 0){
         if(overflow == 0){
-          lifepoint--;
+          damagepoint++;
           overflow++;
         }
       }
@@ -87,18 +85,21 @@ window.addEventListener('keydown', function(e){
     }
 
     //gameover check
-    if(lifepoint == 0){
-      var div = document.createElement('div');
-      div.textContent = "You lost the game";
-      div.setAttribute('id', 'gamelost');
-      document.getElementById('gameover').appendChild(div);
-      
-      gameover = true;
+    if(gamelost == false){
+      if(damagepoint == 11){
+        var div = document.createElement('div');
+        div.textContent = "You lost the game";
+        div.setAttribute('id', 'gamelost');
+        document.getElementById('gameover').appendChild(div);
+        gamelost = true;
+        gameover = true;
+      }
     }
+
   }
   //var reset
   overflow = 0;
   anwsertrue = 0;
   falseinput = 0;
-  document.getElementById('lifepoints').innerHTML = lifepoint;
+  document.getElementById('imglifepoints').src = 'img/galgje/state'+damagepoint+'.png';
 })
